@@ -49,7 +49,7 @@ const PlaceControl = ({ places, onExtend, setPlaces }: Props) => {
       {!acitveAdder ? (
         <button
           onClick={() => setActiveAdder(true)}
-          className="px-8 py-2 bg-green-500 hover:bg-green-700 text-white rounded-md shadow"
+          className="px-8 py-2 mt-8 bg-green-500 hover:bg-green-700 text-white rounded-md shadow"
         >
           הוסף מקום
         </button>

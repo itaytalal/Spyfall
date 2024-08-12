@@ -37,7 +37,7 @@ const PlaceAdder = ({
 
   
   return (
-    <div className="flex relative flex-col gap-2 border-gray-700 border-2 p-2 rounded-md">
+    <div className="flex relative flex-col gap-2 border-gray-700 border-2 p-2 rounded-md mt-8">
             <button
         className='absolute top-2 left-2 text-black hover:text-red-500 transition-colors duration-300'
         onClick={closeCreating}

@@ -91,7 +91,7 @@ export default function PlayersList({ players, place = null, mySpy = null, mySpy
     <div className='flex flex-col items-center py-2 gap-3 border-b-2 border-black w-screen'>
       <Toaster />
       {players.length === 0 && (
-        <div className='border-black text-red-500 shadow-lg font-semibold'>אין שחקנים!</div>
+        <div className=' text-red-500 font-semibold m-2'>אין שחקנים!</div>
       )}
       {players.map((player, index) => (
         <div

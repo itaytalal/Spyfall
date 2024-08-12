@@ -2,6 +2,7 @@
 import AddPlayer from "@/components/AddPlayer";
 import ExpandedJobs from "@/components/ExpandedJobs";
 import PlaceControl from "@/components/PlaceControl";
+import PlacesToggle from "@/components/PlacesToggle";
 import PlayersList from "@/components/PlayerList";
 import SpyRadio from "@/components/SpyRadio";
 import { useUserContext } from "@/context/myContext";
@@ -153,13 +154,7 @@ export const Front = (props: Props) => {
         שחק
       </button>
 
-      <div
-        className="bg-white mt-2 p-4 gap-4 flex items-center justify-between rounded-md text-black cursor-pointer hover:bg-gray-200 shadow-md"
-        onClick={toggleShowPlaces}
-      >
-        <p>מקומות: ({places.length})</p>
-        {!showPlaces ? <FaChevronDown /> : <FaChevronUp />}
-      </div>
+      <PlacesToggle showPlaces={showPlaces} toggleShowPlaces={toggleShowPlaces} places={places}/>
       {showPlaces && (
         <PlaceControl
           places={places}
