@@ -44,7 +44,7 @@ const PlaceControl = ({ places, onExtend, setPlaces }: Props) => {
       }
   }
   return (
-    <div className="mt-4 w-full bg-white p-4 rounded-md shadow-md max-w-4xl flex flex-col items-center">
+    <div className="mt-4 w-full bg-white p-4 rounded-xl shadow-md max-w-4xl flex flex-col items-center">
       <PlaceDisplay places={places} onExtend={onExtend} setPlaces={setPlaces} />
       {!acitveAdder ? (
         <button

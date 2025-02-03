@@ -16,7 +16,7 @@ type Props= {}
 const Game = ({ }:Props) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const { spys, players, places } = useUserContext();
+    const { spys, players, places, timeMinute } = useUserContext();
     const [chosenPlace, setChosenPlace] = useState<Place | null>(null);
     const [chosenSpy1, setChosenSpy1] = useState<string | null>(null);
     const [chosenSpy2, setChosenSpy2] = useState<string | null>(null);
@@ -37,12 +37,14 @@ const Game = ({ }:Props) => {
         console.log("spys: " + spys);
         console.log("players: " + players);
         console.log("places: " + places);
+        console.log("game time: " + timeMinute)
   
         // Choose a random place from the places array
         if (places.length > 0) {
           const randomIndex = Math.floor(Math.random() * places.length);
           setChosenPlace(places[randomIndex]);
         }
+        //choose randim players for spys
         if (players.length > 0) {
           const firstSpyIndex = Math.floor(Math.random() * players.length);
           setChosenSpy1(players[firstSpyIndex]);
@@ -60,7 +62,7 @@ const Game = ({ }:Props) => {
       } finally {
         setLoading(false);
       }
-    }, [spys, players, places, router]);
+    }, [spys, players, places, router, timeMinute]);
   
     if (loading) {
       return (
@@ -91,7 +93,7 @@ const Game = ({ }:Props) => {
         />
         {chosenPlace && timerStart && (
           <div className="text-center mt-4">
-            <Timer initialMinutes={1} />
+            <Timer initialMinutes={timeMinute} />
           </div>
         )}
         <button className="flex flex-row items-center gap-1 border-2 px-4 py-2

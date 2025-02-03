@@ -5,6 +5,7 @@ import PlaceControl from "@/components/PlaceControl";
 import PlacesToggle from "@/components/PlacesToggle";
 import PlayersList from "@/components/PlayerList";
 import SpyRadio from "@/components/SpyRadio";
+import TimeSelector from "@/components/TimeSelector";
 import { useUserContext } from "@/context/myContext";
 import { Place } from "@/types/Place";
 import axios from "axios";
@@ -16,7 +17,7 @@ import { VscLoading } from "react-icons/vsc";
 type Props = {};
 
 export const Front = (props: Props) => {
-  const { user, players, setPlayers, places, setPlaces, setSpys,spys } = useUserContext();
+  const { user, players, setPlayers, places, setPlaces, setSpys,spys,timeMinute,setTimeMinute } = useUserContext();
   const [showPlaces, setShowPlaces] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -77,7 +78,7 @@ export const Front = (props: Props) => {
         postPlayer();
       }
     }
-  }, [user, router, setPlaces]);
+  }, [user, router, setPlaces,players]);
 
   const handleDeleteJob = async (job: string, place: Place) => {
     if (place.jobs.length <=3) return alert("למקום חייבים להיות לפחות 3 תפקידים")
@@ -147,6 +148,7 @@ export const Front = (props: Props) => {
       <PlayersList players={players} setPlayers={setPlayers} />
       <AddPlayer />
       <SpyRadio spy={spy} setSpy={setSpy} />
+      <TimeSelector timeMinute={timeMinute} setTimeMinute={setTimeMinute}/>
       <button
         onClick={start}
         className="px-8 py-4 cursor-pointer rounded-md shadow-md text-white text-2xl bg-green-500 hover:bg-green-700"

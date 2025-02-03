@@ -10,9 +10,10 @@ export function ContextWrap({children}:{children:React.ReactNode}){
     const [places,setPlaces] = useState<Place[]>([])
     const [user,setUser] = useState<string>("")
     const [spys,setSpys] = useState<Number>(1)
+    const [timeMinute,setTimeMinute] = useState<Number>(15)
     
     return(
-        <userContext.Provider value={{user,setUser,players,setPlayers,places,setPlaces,spys,setSpys}}>
+        <userContext.Provider value={{user,setUser,players,setPlayers,places,setPlaces,spys,setSpys,timeMinute,setTimeMinute}}>
             {children}
         </userContext.Provider>
     )
